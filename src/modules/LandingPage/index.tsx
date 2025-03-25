@@ -1,11 +1,10 @@
-import { Button } from "@/components/ui/button";
+import Header from "@/components/layouts/Header";
 import React from "react";
 
 const LandingPage = () => {
   return (
-    <div className="font-sans  container mx-auto">
-      LandingPage
-      <Button variant={"destructive"}>click me</Button>
+    <div className="font-sans container mx-auto">
+      <Header />
     </div>
   );
 };
