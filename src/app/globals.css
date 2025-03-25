@@ -14,7 +14,7 @@
   --popover-foreground: oklch(0.13 0.028 261.692);
   --primary: #b9ff66;
   --primary-foreground: oklch(0.985 0.002 247.839);
-  --secondary: oklch(0.967 0.003 264.542);
+  --secondary: #191a23;
   --secondary-foreground: oklch(0.21 0.034 264.665);
   --muted: oklch(0.967 0.003 264.542);
   --muted-foreground: oklch(0.551 0.027 264.364);
@@ -39,8 +39,8 @@
   --sidebar-ring: oklch(0.707 0.022 261.325);
 }
 
-@theme static {
-  --color-primary: #b9ff66;
+@theme static{
+  --color-third: #F3F3F3;
 }
 
 @theme inline {

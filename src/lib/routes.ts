@@ -4,4 +4,5 @@ export const ROUTES = {
   USE_CASES: "/use-cases",
   PRICING: "/pricing",
   BLOG: "/blog",
+  LEARN_MORE: "/blog",
 };
