@@ -3,6 +3,8 @@ import React from "react";
 import Banner from "./components/Banner";
 import Company from "./components/Company";
 import Services from "./components/Services";
+import Happen from "./components/Happen";
+import CaseStudies from "./components/CaseStudies";
 
 const LandingPage = () => {
   return (
@@ -11,6 +13,8 @@ const LandingPage = () => {
       <Banner />
       <Company />
       <Services />
+      <Happen />
+      <CaseStudies />
     </div>
   );
 };

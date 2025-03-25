@@ -3,7 +3,7 @@ import React from "react";
 
 const Company = () => {
   return (
-    <div className="grid grid-cols-6 py-[4.375rem]">
+    <div className="flex gap-[5.75rem] py-[4.375rem]">
       {Array.from({ length: 6 }, (_, index) => (
         <div className="relative w-32 h-12" key={index}>
           <Image

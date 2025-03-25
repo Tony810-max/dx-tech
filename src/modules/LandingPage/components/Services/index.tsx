@@ -6,7 +6,7 @@ import { CARD_DATA } from "../../utils/const";
 
 const Services = () => {
   return (
-    <div className="pt-[4.375rem] pb-20 min-h-screen space-y-20">
+    <div className="pt-[4.375rem] pb-20 space-y-20">
       <Heading
         title="Services"
         description="At our digital marketing agency, we offer a range of services to help businesses grow and succeed online. These services include:"
