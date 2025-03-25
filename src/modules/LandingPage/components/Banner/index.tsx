@@ -14,10 +14,7 @@ const Banner = () => {
           through a range of services including SEO, PPC, social media
           marketing, and content creation.
         </span>
-        <Button
-          variant={"default"}
-          className="bg-secondary px-[3.0103rem] text-xl font-normal w-fit"
-        >
+        <Button variant={"secondary"} className="w-fit min-w-[16.5rem]">
           Book a consultation
         </Button>
       </div>

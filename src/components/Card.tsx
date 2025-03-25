@@ -1,4 +1,4 @@
-import React from "react";
+import { FC, HTMLAttributes } from "react";
 import TitleHighlight from "@/components/TitleHighlight";
 import { ROUTES } from "@/lib/routes";
 import { ArrowUpRight } from "lucide-react";
@@ -6,54 +6,112 @@ import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-export interface ICard {
-  title1: string;
-  title2: string;
-  dark: boolean;
+export type TCardVariant = "outline" | "primary" | "secondary";
+
+export interface ICardProps extends HTMLAttributes<HTMLDivElement> {
+  textFirstLine: string;
+  textSecondLine: string;
   image: string;
-  backgroundColor: string;
+  variant: TCardVariant;
+  bgText?: ICardProps["className"];
 }
 
-const Card: React.FC<ICard> = ({
-  dark,
+const Card: FC<ICardProps> = ({
   image,
-  title1,
-  title2,
-  backgroundColor,
+  textFirstLine,
+  textSecondLine,
+  variant,
+  bgText,
+  className,
+  ...props
 }) => {
+  const getBgColor = () => {
+    switch (variant) {
+      case "outline":
+        return "bg-[#F3F3F3]";
+      case "primary":
+        return "bg-primary";
+      case "secondary":
+        return "bg-secondary";
+      default:
+        return "bg-primary";
+    }
+  };
+
+  const bgColor = getBgColor();
+
+  const getLearnMoreIconColor = () => {
+    switch (variant) {
+      case "outline":
+        return {
+          color: "var(--primary)",
+          bg: "bg-secondary",
+        };
+      case "primary":
+        return {
+          color: "var(--primary)",
+          bg: "bg-secondary",
+        };
+      case "secondary":
+        return {
+          color: "#000",
+          bg: "bg-white",
+        };
+      default:
+        return {
+          color: "var(--primary)",
+          bg: "bg-secondary",
+        };
+    }
+  };
+
+  const isLearnMoreTextBlack =
+    variant === "outline" || variant === "primary" ? true : false;
+
+  const renderLearnMoreIcon = () => {
+    const color = getLearnMoreIconColor();
+    return (
+      <div
+        className={cn(
+          "w-[42px] h-[42px] rounded-full flex items-center justify-center",
+          color.bg
+        )}
+      >
+        <ArrowUpRight color={color.color} size={24} />
+      </div>
+    );
+  };
+
   return (
     <div
       className={cn(
         "p-[3.125rem] border flex justify-between rounded-[2.8125rem] border-secondary shadow-[0px_5px_0px_0px_#191A23]",
-        backgroundColor
+        bgColor,
+        className
       )}
+      {...props}
     >
       <div className="flex flex-col justify-between">
         <div>
           <TitleHighlight
-            title={title1}
-            bgHightLight="bg-primary"
-            sizeText="text-[1.875rem]"
+            title={textFirstLine}
+            className={cn("bg-primary text-[1.875rem]", bgText)}
           />
           <TitleHighlight
-            title={title2}
-            bgHightLight="bg-primary"
-            sizeText="text-[1.875rem]"
+            title={textSecondLine}
+            className={cn("bg-primary text-[1.875rem]", bgText)}
           />
         </div>
         <Link
           href={ROUTES?.LEARN_MORE}
           className="flex gap-4 items-center hover:opacity-80"
         >
-          <div
-            className={cn(
-              "w-[42px] h-[42px] rounded-full flex items-center justify-center",
-              dark ? "bg-white" : `bg-black`
-            )}
+          {renderLearnMoreIcon()}
+          <span
+            className={cn("text-xl text-white", {
+              "text-black": isLearnMoreTextBlack,
+            })}
           >
-            <ArrowUpRight color={dark ? " #000" : "var(--primary)"} size={24} />
-          </div>
-          <span className={cn("text-xl", dark ? "text-white" : "text-black")}>
             Learn more
           </span>
         </Link>

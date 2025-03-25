@@ -9,10 +9,7 @@ const ContentHappen = () => {
         Contact us today to learn more about how our digital marketing services
         can help your business grow and succeed online.
       </span>
-      <Button
-        variant={"default"}
-        className="bg-black w-fit hover:cursor-pointer hover:text-black py-7 px-6"
-      >
+      <Button variant={"secondary"} className="w-fit ">
         Get your free proposal
       </Button>
     </div>

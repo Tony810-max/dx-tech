@@ -3,15 +3,15 @@ import React from "react";
 
 const ImageHappen = () => {
   return (
-    <div className="relative w-[30.875rem] h-[24.625rem]">
-      <Image
-        src={"/LandingPage/happen.webp"}
-        alt="happen"
-        fill
-        priority
-        unoptimized
-      />
-    </div>
+    <Image
+      src={"/LandingPage/happen.webp"}
+      alt="happen"
+      width={494}
+      height={394}
+      priority
+      unoptimized
+      className="absolute right-0 -top-5"
+    />
   );
 };
 

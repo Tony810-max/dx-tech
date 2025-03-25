@@ -39,8 +39,8 @@
   --sidebar-ring: oklch(0.707 0.022 261.325);
 }
 
-@theme static{
-  --color-third: #F3F3F3;
+@theme static {
+  --color-third: #f3f3f3;
 }
 
 @theme inline {

@@ -1,25 +1,13 @@
 import { cn } from "@/lib/utils";
-import React from "react";
+import React, { HTMLAttributes } from "react";
 
-interface ITitleHighLight {
+interface ITitleHighLight extends HTMLAttributes<HTMLParagraphElement> {
   title: string;
-  bgHightLight: string;
-  sizeText: string;
 }
 
-const TitleHighlight: React.FC<ITitleHighLight> = ({
-  title,
-  bgHightLight,
-  sizeText,
-}) => {
+const TitleHighlight: React.FC<ITitleHighLight> = ({ title, className }) => {
   return (
-    <p
-      className={cn(
-        "leading-none rounded-md pl-2 pr-2 w-fit",
-        bgHightLight,
-        sizeText
-      )}
-    >
+    <p className={cn("leading-none rounded-md pl-2 pr-2 w-fit", className)}>
       {title}
     </p>
   );
