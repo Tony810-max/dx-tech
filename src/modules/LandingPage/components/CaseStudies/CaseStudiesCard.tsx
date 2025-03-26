@@ -8,7 +8,7 @@ const CaseStudiesCard = (props: HTMLAttributes<HTMLDivElement>) => {
   return (
     <div
       {...props}
-      className={cn("border-r-white space-y-5", props?.className)}
+      className={cn("flex-1 border-r-white space-y-5", props?.className)}
     >
       <p className="text-white max-w-[17.875rem] text-lg">
         For a local restaurant, we implemented a targeted PPC campaign that
