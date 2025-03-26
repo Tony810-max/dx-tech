@@ -14,7 +14,7 @@ const TeamCard: FC<ITeamCard> = ({ description, image, name, position }) => {
     <div className="border border-black py-10 px-[2.1875rem] space-y-7 rounded-[2.8125rem] shadow-[0px_5px_0px_0px_#191A23]">
       <div className="relative flex items-end gap-5">
         <Image
-          src={"/LandingPage/cardTeam1.webp"}
+          src={image}
           alt="member"
           width={106}
           height={102}
@@ -26,7 +26,7 @@ const TeamCard: FC<ITeamCard> = ({ description, image, name, position }) => {
           <span className="text-lg">{position}</span>
         </div>
         <Image
-          src={image}
+          src={"/LandingPage/iconTeam.webp"}
           alt="icon"
           width={34}
           height={34}

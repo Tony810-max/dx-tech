@@ -6,56 +6,48 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import Image from "next/image";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { TESTIMONIALS_DATA } from "@/modules/LandingPage/utils/const";
+
+export interface ITestimonial {
+  quote: string;
+  author: string;
+  position: string;
+}
 
 const TestimonialsCarousel = () => {
   return (
-    <Carousel className="bg-secondary pt-[5.25rem] pb-[4.25rem] rounded-[2.8125rem]">
+    <Carousel className="w-full bg-secondary pt-[5.25rem] pb-[4.25rem] rounded-[2.8125rem]">
       <CarouselContent className="space-x-[3.125rem]">
-        <CarouselItem className="relative max-w-[606px] z-[-1] shrink-0">
-          <Image
-            src={"/LandingPage/Bubble.webp"}
-            alt="buble"
-            width={606}
-            height={266}
-            priority
-            unoptimized
-          />
-          <p className="absolute top-8 left-1/2 w-full -translate-x-1/2 text-white text-lg  z-10 px-[3.25rem] text-center">
-            {`"We have been working with Positivus for the past year and have seen
-            a significant increase in website traffic and leads as a result of
-            their efforts. The team is professional, responsive, and truly cares
-            about the success of our business. We highly recommend Positivus to
-            any company looking to grow their online presence."`}
-          </p>
-          <div className="absolute bottom-[-20] flex flex-col z-30">
-            <span className="text-white">John Smith</span>
-            <span className="text-white">Marketing Director at XYZ Corp</span>
-          </div>
-        </CarouselItem>
-        <CarouselItem className="w-[606px]">
-          <Image
-            src={"/LandingPage/Bubble.webp"}
-            alt="buble"
-            width={606}
-            height={266}
-            priority
-            unoptimized
-          />
-        </CarouselItem>
-        <CarouselItem className="w-[606px]">
-          <Image
-            src={"/LandingPage/Bubble.webp"}
-            alt="buble"
-            width={606}
-            height={266}
-            priority
-            unoptimized
-          />
-        </CarouselItem>
+        {TESTIMONIALS_DATA?.map((testimonials, index) => (
+          <CarouselItem className=" basis-1/2 pl-4" key={index}>
+            <div className="relative">
+              <div className="bg-[#111827] border border-primary rounded-3xl p-6 md:p-8 relative">
+                <p className="text-white text-base md:text-lg">
+                  {testimonials?.quote}
+                </p>
+                <div className="absolute bottom-[-1.625rem] left-12 w-8 h-8 overflow-hidden">
+                  <div className="absolute border w-8 h-8 border-l border-r border-primary bg-[#111827] rotate-45 translate-y-[-50%]"></div>
+                </div>
+              </div>
+              <div className="ml-12 mt-8 text-left w-fit">
+                <h3 className="text-primary font-semibold text-lg">
+                  {testimonials?.author}
+                </h3>
+                <p className="text-white text-sm">{testimonials?.position}</p>
+              </div>
+            </div>
+          </CarouselItem>
+        ))}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+      <div className="flex items-center justify-center mt-12 gap-2">
+        <CarouselPrevious className="static bg-transparent border-none hover:bg-transparent hover:opacity-80 text-gray-400">
+          <ChevronLeft className="h-52 w-52 shrink-0" />
+        </CarouselPrevious>
+        <CarouselNext className="static bg-transparent border-none hover:bg-transparent hover:opacity-80 text-gray-400">
+          <ChevronRight className="h-52 w-52" />
+        </CarouselNext>
+      </div>
     </Carousel>
   );
 };
